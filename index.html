@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marradi 5 · Appartamento d'epoca a Milano, Sant'Ambrogio</title>
+  <meta name="description" content="Appartamento d'epoca di 100 mq in via Marradi 5, Milano: due camere, salone con cucina, lavanderia, balconi e box auto. Soggiorni brevi a pochi minuti da Sant'Ambrogio e dal Duomo.">
+  <link rel="canonical" href="https://fabiomelisso.github.io/marradi5/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Marradi 5 · Appartamento d'epoca a Milano">
+  <meta property="og:description" content="100 mq, due camere, soffitti alti e box auto nel cuore di Milano. Soggiorni brevi.">
+  <meta property="og:url" content="https://fabiomelisso.github.io/marradi5/">
+  <meta property="og:image" content="https://fabiomelisso.github.io/marradi5/foto/web/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f6f1ea">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231c1917'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' fill='%23c9a96e' text-anchor='middle'%3E5%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="foto/web/02-soggiorno-living-1600.jpg" fetchpriority="high">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Apartment",
+    "name": "Marradi 5 · Appartamento d'epoca",
+    "description": "Appartamento d'epoca di 100 mq con due camere, salone con cucina, lavanderia, balconi e box auto. Locazione breve.",
+    "url": "https://fabiomelisso.github.io/marradi5/",
+    "image": "https://fabiomelisso.github.io/marradi5/foto/web/og.jpg",
+    "numberOfRooms": 3,
+    "numberOfBedrooms": 2,
+    "numberOfBathroomsTotal": 1,
+    "floorSize": { "@type": "QuantitativeValue", "value": 100, "unitCode": "MTK" },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Giovanni Marradi 5",
+      "addressLocality": "Milano",
+      "postalCode": "20123",
+      "addressRegion": "MI",
+      "addressCountry": "IT"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 45.4646743, "longitude": 9.1739320 },
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Box auto", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Lavanderia attrezzata", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Balconi", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Cucina attrezzata", "value": true }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <span class="preloader__brand">Marradi <em>5</em></span>
+      <span class="preloader__count" id="preloaderCount">0</span>
+    </div>
+  </div>
+
+  <!-- Cursore custom (solo pointer fine) -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top" aria-label="Marradi 5, torna all'inizio">Marradi <em>5</em></a>
+    <nav class="nav__links" aria-label="Sezioni">
+      <a href="#spazi">Spazi</a>
+      <a href="#galleria">Galleria</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#posizione">Posizione</a>
+    </nav>
+    <a class="btn btn--small" href="#prenota" data-magnetic>Prenota</a>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__media">
+        <img class="hero__img" src="foto/web/02-soggiorno-living-1600.jpg"
+             srcset="foto/web/02-soggiorno-living-800.jpg 800w, foto/web/02-soggiorno-living-1600.jpg 1600w"
+             sizes="100vw" width="1536" height="1024" fetchpriority="high" decoding="async"
+             alt="Soggiorno con soffitto decorato, divano terracotta e parquet a spina di pesce">
+      </div>
+      <div class="hero__content">
+        <p class="overline hero__overline">Milano · Sant'Ambrogio · Via Marradi 5</p>
+        <h1 class="hero__title" data-split>Un appartamento d'epoca nel cuore di Milano</h1>
+        <p class="hero__sub" data-reveal>Cento metri quadri di soffitti alti, parquet a spina e luce da ogni lato. Per soggiorni brevi, con lo spazio e la calma di una casa vera.</p>
+        <a class="btn hero__cta" href="#prenota" data-reveal data-magnetic>Verifica disponibilità</a>
+      </div>
+      <ul class="factbar" aria-label="Dati principali">
+        <li><strong data-count="100">0</strong><span>mq</span></li>
+        <li><strong data-count="2">0</strong><span>camere</span></li>
+        <li><strong data-count="4">0</strong><span>ospiti</span></li>
+        <li><strong>Box</strong><span>auto incluso</span></li>
+      </ul>
+      <div class="hero__scroll" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="intro section" id="intro">
+      <div class="intro__text">
+        <p class="overline" data-reveal>Il palazzo</p>
+        <h2 class="h2" data-split>Un palazzo d'epoca, un androne affrescato, un appartamento rinnovato con cura.</h2>
+        <p class="lead" data-reveal>Via Marradi è una strada tranquilla tra Sant'Ambrogio e Cadorna, a pochi passi dalla Basilica, dal Cenacolo e dall'Università Cattolica. L'appartamento occupa cento metri quadri in un edificio d'epoca con soffitti alti e stanze ampie, rinnovato con materiali caldi: parquet a spina di pesce, marmo, boiserie e tessuti color terracotta.</p>
+      </div>
+      <div class="intro__media">
+        <figure class="parallax" data-parallax="-12">
+          <img src="foto/web/08-facciata-palazzo-1600.jpg" width="534" height="640" loading="lazy" decoding="async" alt="Facciata del palazzo d'epoca in mattoni e intonaco ocra">
+        </figure>
+        <figure class="parallax parallax--offset" data-parallax="10">
+          <img src="foto/web/07-androne-ingresso-palazzo-1600.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Androne d'ingresso con volte affrescate e cancello in ferro battuto">
+        </figure>
+      </div>
+    </section>
+
+    <!-- SPAZI: capitoli sticky -->
+    <section class="spaces" id="spazi">
+      <div class="spaces__header section">
+        <p class="overline" data-reveal>Gli spazi</p>
+        <h2 class="h2" data-split>Cinque ambienti, una sola luce.</h2>
+      </div>
+
+      <div class="spaces__track">
+        <div class="spaces__sticky">
+          <div class="spaces__images">
+            <img src="foto/web/02-soggiorno-living-1600.jpg" srcset="foto/web/02-soggiorno-living-800.jpg 800w, foto/web/02-soggiorno-living-1600.jpg 1600w" sizes="(min-width: 900px) 55vw, 100vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Soggiorno" class="is-active" data-space-img="0">
+            <img src="foto/web/01-cucina-sala-pranzo-1600.jpg" srcset="foto/web/01-cucina-sala-pranzo-800.jpg 800w, foto/web/01-cucina-sala-pranzo-1600.jpg 1600w" sizes="(min-width: 900px) 55vw, 100vw" width="1536" height="1024" loading="lazy" decoding="async" alt="Cucina e sala da pranzo" data-space-img="1">
+            <img src="foto/web/05-camera-padronale-righe-1600.jpg" srcset="foto/web/05-camera-padronale-righe-800.jpg 800w, foto/web/05-camera-padronale-righe-1600.jpg 1600w" sizes="(min-width: 900px) 55vw, 100vw" width="1600" height="900" loading="lazy" decoding="async" alt="Camera padronale" data-space-img="2">
+            <img src="foto/web/04-camera-carta-parati-terracotta-1600.jpg" width="640" height="360" loading="lazy" decoding="async" alt="Seconda camera" data-space-img="3">
+            <img src="foto/web/06-cabina-armadio-vetrate-1600.jpg" srcset="foto/web/06-cabina-armadio-vetrate-800.jpg 800w, foto/web/06-cabina-armadio-vetrate-1600.jpg 1600w" sizes="(min-width: 900px) 55vw, 100vw" width="1600" height="900" loading="lazy" decoding="async" alt="Cabina armadio" data-space-img="4">
+          </div>
+          <div class="spaces__counter" aria-hidden="true"><span id="spaceIndex">01</span> / 05</div>
+        </div>
+
+        <ol class="spaces__list">
+          <li class="space" data-space="0">
+            <span class="space__num">01</span>
+            <h3 class="h3">Il salone</h3>
+            <p>Il cuore della casa: soffitto a stucchi, grande specchiera d'epoca, divano in tessuto terracotta e zona pranzo con tavolo rotondo in marmo. Le due finestre alte portano luce per tutto il giorno.</p>
+          </li>
+          <li class="space" data-space="1">
+            <span class="space__num">02</span>
+            <h3 class="h3">La cucina</h3>
+            <p>Una cucina a scomparsa, bianca e lineare, con piano e alzata in marmo venato, forno e piano a induzione. Si apre sul salone e scompare quando non serve.</p>
+          </li>
+          <li class="space" data-space="2">
+            <span class="space__num">03</span>
+            <h3 class="h3">La camera padronale</h3>
+            <p>Boiserie a righe sottili, testiera sagomata, armadi su misura fino al soffitto. Una stanza silenziosa, con luce morbida da due finestre.</p>
+          </li>
+          <li class="space" data-space="3">
+            <span class="space__num">04</span>
+            <h3 class="h3">La seconda camera</h3>
+            <p>Parete in carta da parati terracotta a motivi, letto matrimoniale e accesso al balcone. Perfetta per una coppia o per due ospiti.</p>
+          </li>
+          <li class="space" data-space="4">
+            <span class="space__num">05</span>
+            <h3 class="h3">Cabina armadio e lavanderia</h3>
+            <p>Armadiature vetrate su misura, un disimpegno luminoso e una lavanderia ben attrezzata: lo spazio che serve per fermarsi a lungo senza rinunciare a nulla.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- GALLERIA -->
+    <section class="gallery" id="galleria">
+      <div class="section gallery__header">
+        <p class="overline" data-reveal>Galleria</p>
+        <h2 class="h2" data-split>Guarda ogni dettaglio.</h2>
+      </div>
+      <div class="swiper gallery__swiper" id="gallerySwiper">
+        <div class="swiper-wrapper" id="galleryWrapper">
+          <a class="swiper-slide gallery__item" href="foto/web/02-soggiorno-living-1600.jpg" data-pswp-width="1536" data-pswp-height="1024"><img src="foto/web/02-soggiorno-living-800.jpg" width="1536" height="1024" loading="lazy" decoding="async" alt="Soggiorno"><span>Soggiorno</span></a>
+          <a class="swiper-slide gallery__item" href="foto/web/01-cucina-sala-pranzo-1600.jpg" data-pswp-width="1536" data-pswp-height="1024"><img src="foto/web/01-cucina-sala-pranzo-800.jpg" width="1536" height="1024" loading="lazy" decoding="async" alt="Cucina e sala da pranzo"><span>Cucina</span></a>
+          <a class="swiper-slide gallery__item" href="foto/web/05-camera-padronale-righe-1600.jpg" data-pswp-width="1600" data-pswp-height="900"><img src="foto/web/05-camera-padronale-righe-800.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Camera padronale"><span>Camera padronale</span></a>
+          <a class="swiper-slide gallery__item" href="foto/web/04-camera-carta-parati-terracotta-1600.jpg" data-pswp-width="640" data-pswp-height="360"><img src="foto/web/04-camera-carta-parati-terracotta-800.jpg" width="640" height="360" loading="lazy" decoding="async" alt="Seconda camera"><span>Seconda camera</span></a>
+          <a class="swiper-slide gallery__item" href="foto/web/06-cabina-armadio-vetrate-1600.jpg" data-pswp-width="1600" data-pswp-height="900"><img src="foto/web/06-cabina-armadio-vetrate-800.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Cabina armadio"><span>Cabina armadio</span></a>
+          <a class="swiper-slide gallery__item" href="foto/web/03-corridoio-ingresso-1600.jpg" data-pswp-width="640" data-pswp-height="360"><img src="foto/web/03-corridoio-ingresso-800.jpg" width="640" height="360" loading="lazy" decoding="async" alt="Corridoio"><span>Corridoio</span></a>
+          <a class="swiper-slide gallery__item gallery__item--tall" href="foto/web/07-androne-ingresso-palazzo-1600.jpg" data-pswp-width="480" data-pswp-height="640"><img src="foto/web/07-androne-ingresso-palazzo-800.jpg" width="480" height="640" loading="lazy" decoding="async" alt="Androne del palazzo"><span>Androne</span></a>
+          <a class="swiper-slide gallery__item gallery__item--tall" href="foto/web/08-facciata-palazzo-1600.jpg" data-pswp-width="534" data-pswp-height="640"><img src="foto/web/08-facciata-palazzo-800.jpg" width="534" height="640" loading="lazy" decoding="async" alt="Facciata del palazzo"><span>Il palazzo</span></a>
+        </div>
+      </div>
+      <div class="gallery__nav">
+        <button class="gallery__btn" id="galleryPrev" aria-label="Foto precedente">←</button>
+        <span class="gallery__progress"><i id="galleryProgress"></i></span>
+        <button class="gallery__btn" id="galleryNext" aria-label="Foto successiva">→</button>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Soffitti alti · Parquet a spina · Box auto · Lavanderia · Balconi · Sant'Ambrogio · Cadorna · Cenacolo · </span>
+        <span>Soffitti alti · Parquet a spina · Box auto · Lavanderia · Balconi · Sant'Ambrogio · Cadorna · Cenacolo · </span>
+      </div>
+    </div>
+
+    <!-- SERVIZI -->
+    <section class="amenities section" id="servizi">
+      <div class="amenities__header">
+        <p class="overline" data-reveal>Servizi</p>
+        <h2 class="h2" data-split>Tutto quello che serve per restare.</h2>
+      </div>
+      <ul class="amenities__grid">
+        <li data-reveal><b>100 mq</b><span>Appartamento intero, soffitti alti, due camere</span></li>
+        <li data-reveal><b>Box auto</b><span>Posto auto privato nel palazzo</span></li>
+        <li data-reveal><b>Lavanderia</b><span>Lavatrice, asciugatrice e spazio stireria</span></li>
+        <li data-reveal><b>Balconi</b><span>Affacci sulla via e sul cortile</span></li>
+        <li data-reveal><b>Cucina attrezzata</b><span>Forno, induzione, tavolo per sei</span></li>
+        <li data-reveal><b>Due camere</b><span>Letti matrimoniali, armadi su misura</span></li>
+        <li data-reveal><b>Bagno</b><span>Finiture in marmo</span></li>
+        <li data-reveal><b>Palazzo d'epoca</b><span>Androne affrescato, portone custodito</span></li>
+      </ul>
+    </section>
+
+    <!-- POSIZIONE -->
+    <section class="location" id="posizione">
+      <div class="location__text section">
+        <p class="overline" data-reveal>Posizione</p>
+        <h2 class="h2" data-split>Sant'Ambrogio, Cadorna, il Cenacolo: tutto a piedi.</h2>
+        <ul class="location__list">
+          <li data-reveal><span>Basilica di Sant'Ambrogio</span><b>5 min a piedi</b></li>
+          <li data-reveal><span>Cenacolo Vinciano</span><b>8 min a piedi</b></li>
+          <li data-reveal><span>Stazione Cadorna (M1, M2, Malpensa Express)</span><b>10 min a piedi</b></li>
+          <li data-reveal><span>Castello Sforzesco</span><b>15 min a piedi</b></li>
+          <li data-reveal><span>Duomo</span><b>20 min a piedi · 2 fermate M1</b></li>
+          <li data-reveal><span>Navigli</span><b>15 min a piedi</b></li>
+        </ul>
+      </div>
+      <div class="location__map" id="map" role="region" aria-label="Mappa: via Marradi 5, Milano"></div>
+    </section>
+
+    <!-- PRENOTA -->
+    <section class="book section" id="prenota">
+      <p class="overline" data-reveal>Prenota</p>
+      <h2 class="h2 book__title" data-split>Chiedi le date, ti rispondiamo in giornata.</h2>
+      <p class="lead" data-reveal>Soggiorni da due notti in su. Scrivici per disponibilità, tariffe e per organizzare l'arrivo.</p>
+      <div class="book__actions" data-reveal>
+        <a class="btn" href="mailto:melissofabio@gmail.com?subject=Richiesta%20disponibilit%C3%A0%20Marradi%205&body=Buongiorno%2C%0D%0Avorrei%20informazioni%20per%20un%20soggiorno%20dal%20___%20al%20___%2C%20per%20___%20ospiti.%0D%0AGrazie" data-magnetic>Scrivi un'email</a>
+        <a class="btn btn--ghost" href="https://wa.me/39XXXXXXXXXX?text=Buongiorno%2C%20vorrei%20informazioni%20su%20Marradi%205" data-magnetic data-whatsapp>WhatsApp</a>
+      </div>
+      <p class="book__note" data-reveal>Presto anche su Airbnb e Booking.com.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__brand">Marradi <em>5</em></div>
+    <div class="footer__meta">
+      <span>Via Giovanni Marradi 5, 20123 Milano</span>
+      <span>CIN: da inserire</span>
+      <span>© 2026 · Tutti i diritti riservati</span>
+    </div>
+  </footer>
+
+  <!-- Librerie (versioni fissate) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script type="module">
+    import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#galleryWrapper',
+      children: 'a',
+      pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js')
+    });
+    lightbox.init();
+  </script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
