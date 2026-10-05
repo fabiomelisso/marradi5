@@ -19,6 +19,7 @@
   const MONTHS = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
   const DOW_KEYS = ['dom', 'lun', 'mar', 'mer', 'gio', 'ven', 'sab'];
   const fmtEur = n => new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
+  const fmtEur2 = n => new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
   const fmtDate = d => d.toLocaleDateString('it-IT', { weekday: 'short', day: 'numeric', month: 'short' });
   const iso = d => d.toISOString().slice(0, 10);
   const utc = (y, m, d) => new Date(Date.UTC(y, m, d));
@@ -69,8 +70,39 @@
     return { price: Math.round(p / step) * step, season, events: evs };
   }
 
+  // Soggiorno minimo: più alto in eventi e alta stagione, si riduce a ridosso della data
+  // (così le notti vicine non restano vuote) e per le "notti orfane" tra due prenotazioni.
   function minStayFor(d) {
-    return eventsFor(d).length ? cfg.soggiorno_minimo_eventi : cfg.soggiorno_minimo;
+    if (eventsFor(d).length) return cfg.soggiorno_minimo_eventi;
+    let min = seasonFor(d).moltiplicatore > 1.05 && cfg.soggiorno_minimo_alta ? cfg.soggiorno_minimo_alta : cfg.soggiorno_minimo;
+    const lead = Math.round((d - today) / DAY);
+    (cfg.soggiorno_minimo_riduzione || []).forEach(r => { if (lead <= r.entro_giorni) min = Math.min(min, r.minimo); });
+    const gap = orphanGap(d);
+    if (gap) min = Math.min(min, gap);
+    return min;
+  }
+
+  // Se la notte è in un buco di 1-2 notti tra periodi bloccati (o fra oggi e un blocco),
+  // restituisce la lunghezza del buco; altrimenti 0.
+  function orphanGap(d) {
+    const o = cfg.notti_orfane; if (!o || isBlocked(d)) return 0;
+    let start = new Date(d), end = new Date(d), len = 1;
+    while (len <= o.max_notti) {
+      const prev = new Date(start.getTime() - DAY);
+      if (prev < today || isBlocked(prev)) break;
+      start = prev; len++;
+    }
+    while (len <= o.max_notti) {
+      const next = new Date(end.getTime() + DAY);
+      if (isBlocked(next)) break;
+      end = next; len++;
+      if (len > o.max_notti) return 0;
+    }
+    // Chiuso da entrambi i lati?
+    const before = new Date(start.getTime() - DAY), after = new Date(end.getTime() + DAY);
+    const closedBefore = before < today || isBlocked(before);
+    const closedAfter = isBlocked(after);
+    return (closedBefore && closedAfter && len <= o.max_notti) ? len : 0;
   }
 
   /* ---------- Preventivo ---------- */
@@ -90,15 +122,26 @@
     if (nights < maxMin) return { error: `Per queste date il soggiorno minimo è di ${maxMin} notti.` };
 
     const s = cfg.sconti;
-    let discountPct = 0, discountLabel = '';
-    if (s.mensile && nights >= s.mensile.notti_min) { discountPct = s.mensile.pct; discountLabel = 'Sconto soggiorno mensile'; }
-    else if (s.settimanale && nights >= s.settimanale.notti_min) { discountPct = s.settimanale.pct; discountLabel = 'Sconto soggiorno settimanale'; }
-    else if (s.last_minute && !(s.last_minute_non_in_eventi && hasEvent)) {
+    const candidates = [];
+    const durationOk = !(s.durata_non_in_eventi && hasEvent);
+    if (durationOk) {
+      if (s.mensile && nights >= s.mensile.notti_min) candidates.push([s.mensile.pct, 'Sconto soggiorno mensile']);
+      else if (s.due_settimane && nights >= s.due_settimane.notti_min) candidates.push([s.due_settimane.pct, 'Sconto soggiorno di due settimane']);
+      else if (s.settimanale && nights >= s.settimanale.notti_min) candidates.push([s.settimanale.pct, 'Sconto soggiorno settimanale']);
+    }
+    if (s.last_minute && !(s.last_minute_non_in_eventi && hasEvent)) {
       const lead = Math.round((ci - today) / DAY);
       const ladder = [...s.last_minute].sort((a, b) => a.entro_giorni - b.entro_giorni);
       const hit = ladder.find(l => lead <= l.entro_giorni);
-      if (hit) { discountPct = hit.pct; discountLabel = 'Sconto last minute'; }
+      if (hit) candidates.push([hit.pct, 'Sconto last minute']);
     }
+    const gap = orphanGap(ci);
+    if (gap && cfg.notti_orfane && nights === gap && !hasEvent) {
+      candidates.push([gap === 1 ? cfg.notti_orfane.sconto_1_notte : cfg.notti_orfane.sconto_2_notti, 'Sconto date tra due soggiorni']);
+    }
+    // Gli sconti non si cumulano: vale il più alto.
+    let discountPct = 0, discountLabel = '';
+    candidates.forEach(c => { if (c[0] > discountPct) { discountPct = c[0]; discountLabel = c[1]; } });
     const discount = Math.round(subtotal * discountPct);
     const direct = Math.round((subtotal - discount) * (s.prenotazione_diretta || 0));
     const cleaning = cfg.pulizie || 0;
@@ -188,7 +231,7 @@
       <div class="quote__dates"><span>${fmtDate(checkIn)}</span><i>→</i><span>${fmtDate(checkOut)}</span></div>
       <ul class="quote__lines">${lines.map(l => `<li><span>${l[0]}</span><b>${l[1]}</b></li>`).join('')}</ul>
       <div class="quote__total"><span>Totale</span><b data-total>${fmtEur(q.total)}</b></div>
-      <p class="quote__note">Tassa di soggiorno del Comune di Milano esclusa: circa ${fmtEur(q.tax)} (${fmtEur(cfg.tassa_soggiorno_persona_notte)} a persona a notte, da pagare in loco).</p>
+      <p class="quote__note">Tassa di soggiorno del Comune di Milano esclusa: circa ${fmtEur(q.tax)} (${fmtEur2(cfg.tassa_soggiorno_persona_notte)} a persona a notte, esenti i minori di 18 anni, da pagare in loco).</p>
       <div class="quote__actions">
         <a class="btn" href="mailto:melissofabio@gmail.com?subject=${subject}&body=${body}">Richiedi queste date</a>
         <a class="btn btn--ghost" href="https://wa.me/39XXXXXXXXXX?text=${wa}">WhatsApp</a>

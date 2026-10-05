@@ -3,35 +3,116 @@
   "aggiornato": "2026-10-05",
   "valuta": "EUR",
   "ospiti_max": 4,
-  "base": 220,
+  "base": 210,
   "arrotonda_a": 5,
-  "pavimento_pct": 0.72,
-  "tetto_pct": 3.0,
-  "pulizie": 90,
-  "tassa_soggiorno_persona_notte": 7.0,
+  "pavimento_pct": 0.68,
+  "tetto_pct": 2.8,
+  "pulizie": 95,
+  "tassa_soggiorno_persona_notte": 9.5,
   "tassa_soggiorno_notti_max": 14,
   "soggiorno_minimo": 2,
   "soggiorno_minimo_eventi": 3,
-  "giorni_settimana": { "ven": 1.10, "sab": 1.12, "dom": 1.0, "lun": 0.97, "mar": 0.97, "mer": 0.98, "gio": 1.0 },
+  "giorni_settimana": {
+    "lun": 0.95,
+    "mar": 0.95,
+    "mer": 0.97,
+    "gio": 1.05,
+    "ven": 1.18,
+    "sab": 1.2,
+    "dom": 0.95
+  },
   "stagioni": [
-    { "nome": "Bassa (inverno)",   "da": "01-07", "a": "02-14", "moltiplicatore": 0.85 },
-    { "nome": "Media (fine inverno)", "da": "02-15", "a": "03-15", "moltiplicatore": 0.95 },
-    { "nome": "Alta (primavera)",  "da": "03-16", "a": "06-30", "moltiplicatore": 1.15 },
-    { "nome": "Media (estate)",    "da": "07-01", "a": "07-31", "moltiplicatore": 0.95 },
-    { "nome": "Bassa (agosto)",    "da": "08-01", "a": "08-31", "moltiplicatore": 0.80 },
-    { "nome": "Alta (autunno)",    "da": "09-01", "a": "10-31", "moltiplicatore": 1.15 },
-    { "nome": "Media (novembre)",  "da": "11-01", "a": "12-19", "moltiplicatore": 0.95 },
-    { "nome": "Alta (festività)",  "da": "12-20", "a": "01-06", "moltiplicatore": 1.25 }
+    {
+      "nome": "Bassa (inverno)",
+      "da": "01-07",
+      "a": "02-14",
+      "moltiplicatore": 0.85
+    },
+    {
+      "nome": "Media (fine inverno)",
+      "da": "02-15",
+      "a": "03-15",
+      "moltiplicatore": 0.95
+    },
+    {
+      "nome": "Alta (primavera)",
+      "da": "03-16",
+      "a": "06-30",
+      "moltiplicatore": 1.15
+    },
+    {
+      "nome": "Media (estate)",
+      "da": "07-01",
+      "a": "07-31",
+      "moltiplicatore": 0.95
+    },
+    {
+      "nome": "Bassa (agosto)",
+      "da": "08-01",
+      "a": "08-31",
+      "moltiplicatore": 0.8
+    },
+    {
+      "nome": "Alta (autunno)",
+      "da": "09-01",
+      "a": "10-31",
+      "moltiplicatore": 1.15
+    },
+    {
+      "nome": "Media (novembre)",
+      "da": "11-01",
+      "a": "12-19",
+      "moltiplicatore": 0.95
+    },
+    {
+      "nome": "Alta (festività)",
+      "da": "12-20",
+      "a": "01-06",
+      "moltiplicatore": 1.25
+    }
   ],
   "sconti": {
-    "settimanale": { "notti_min": 7,  "pct": 0.10 },
-    "mensile":     { "notti_min": 28, "pct": 0.35 },
+    "settimanale": {
+      "notti_min": 7,
+      "pct": 0.1
+    },
+    "due_settimane": {
+      "notti_min": 14,
+      "pct": 0.15
+    },
+    "mensile": {
+      "notti_min": 28,
+      "pct": 0.28
+    },
     "last_minute": [
-      { "entro_giorni": 2, "pct": 0.18 },
-      { "entro_giorni": 5, "pct": 0.12 },
-      { "entro_giorni": 10, "pct": 0.07 }
+      {
+        "entro_giorni": 3,
+        "pct": 0.15
+      },
+      {
+        "entro_giorni": 7,
+        "pct": 0.1
+      }
     ],
     "last_minute_non_in_eventi": true,
-    "prenotazione_diretta": 0.05
-  }
+    "durata_non_in_eventi": true,
+    "prenotazione_diretta": 0.08
+  },
+  "soggiorno_minimo_alta": 3,
+  "soggiorno_minimo_riduzione": [
+    {
+      "entro_giorni": 7,
+      "minimo": 1
+    },
+    {
+      "entro_giorni": 14,
+      "minimo": 2
+    }
+  ],
+  "notti_orfane": {
+    "max_notti": 2,
+    "sconto_1_notte": 0.15,
+    "sconto_2_notti": 0.1
+  },
+  "_calibrazione": "Base 210 € = notte infrasettimanale senza eventi. Comparabili 2 camere ott 2026: standard mediana 193-200 €, palazzi d'epoca/premium mediana 326 € (IQR 314-332). Posizionamento: sopra lo standard, sotto il premium, per riempire da subito senza recensioni; da rivedere a +10% dopo le prime 10 recensioni. Dettagli in knowledge-base/30-risorse/affitti-brevi-milano/."
 }
