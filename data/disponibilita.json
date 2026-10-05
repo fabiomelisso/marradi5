@@ -1,0 +1,5 @@
+{
+  "_istruzioni": "Elenca i periodi NON disponibili. 'a' è l'ultima notte bloccata (inclusa). Aggiorna e fai push: il calendario si aggiorna da solo.",
+  "bloccati": [
+  ]
+}

@@ -80,9 +80,10 @@
       <a href="#spazi">Spazi</a>
       <a href="#galleria">Galleria</a>
       <a href="#servizi">Servizi</a>
+      <a href="#tariffe">Tariffe</a>
       <a href="#posizione">Posizione</a>
     </nav>
-    <a class="btn btn--small" href="#prenota" data-magnetic>Prenota</a>
+    <a class="btn btn--small" href="#tariffe" data-magnetic>Prenota</a>
   </header>
 
   <main id="top">
@@ -99,7 +100,7 @@
         <p class="overline hero__overline">Milano · Sant'Ambrogio · Via Marradi 5</p>
         <h1 class="hero__title" data-split>Un appartamento d'epoca nel cuore di Milano</h1>
         <p class="hero__sub" data-reveal>Cento metri quadri di soffitti alti, parquet a spina e luce da ogni lato. Per soggiorni brevi, con lo spazio e la calma di una casa vera.</p>
-        <a class="btn hero__cta" href="#prenota" data-reveal data-magnetic>Verifica disponibilità</a>
+        <a class="btn hero__cta" href="#tariffe" data-reveal data-magnetic>Verifica disponibilità</a>
       </div>
       <ul class="factbar" aria-label="Dati principali">
         <li><strong data-count="100">0</strong><span>mq</span></li>
@@ -227,6 +228,57 @@
       </ul>
     </section>
 
+
+    <!-- DISPONIBILITÀ E TARIFFE -->
+    <section class="rates section" id="tariffe">
+      <div class="rates__header">
+        <p class="overline" data-reveal>Disponibilità e tariffe</p>
+        <h2 class="h2" data-split>Scegli le date, vedi subito il prezzo.</h2>
+        <p class="lead" data-reveal>Tariffe calibrate ogni mese sui migliori appartamenti comparabili del centro di Milano. Soggiorno minimo <span id="ratesMinStay">2</span> notti. Prenotando qui, senza intermediari, hai sempre il prezzo più basso.</p>
+      </div>
+
+      <div class="rates__grid">
+        <div class="cal" data-reveal>
+          <div class="cal__head">
+            <button type="button" class="cal__nav" id="calPrev" aria-label="Mese precedente">←</button>
+            <h3 class="cal__month" id="calMonth" aria-live="polite">—</h3>
+            <button type="button" class="cal__nav" id="calNext" aria-label="Mese successivo">→</button>
+          </div>
+          <div class="cal__dow" aria-hidden="true"><span>Lun</span><span>Mar</span><span>Mer</span><span>Gio</span><span>Ven</span><span>Sab</span><span>Dom</span></div>
+          <div class="cal__grid" id="calGrid" role="grid" aria-label="Calendario disponibilità e prezzi per notte"></div>
+          <ul class="cal__legend" aria-label="Legenda">
+            <li><i class="is-free"></i>Disponibile</li>
+            <li><i class="is-event"></i>Evento in città</li>
+            <li><i class="is-blocked"></i>Occupato</li>
+          </ul>
+          <p class="rates__fallback" hidden>Le tariffe non sono disponibili in questo momento. Scrivici e ti rispondiamo con un preventivo.</p>
+        </div>
+
+        <aside class="quote" data-reveal>
+          <div class="quote__top">
+            <h3 class="h3">Il tuo preventivo</h3>
+            <label class="quote__guests">Ospiti
+              <select id="quoteGuests"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select>
+            </label>
+          </div>
+          <div id="quote"></div>
+        </aside>
+      </div>
+
+      <div class="best" data-reveal>
+        <div class="best__head">
+          <h3 class="h3">Le tariffe migliori dei prossimi dodici mesi</h3>
+          <p class="best__sub">Prezzo per notte più basso e prezzo tipico di ogni mese. Gli eventi in città alzano la domanda: prenota in anticipo.</p>
+        </div>
+        <ul class="best__list" id="bestRates"></ul>
+        <div class="best__events">
+          <p class="overline">Prossimi eventi a Milano</p>
+          <ul id="eventList"></ul>
+        </div>
+        <p class="best__meta">Tariffe aggiornate il <span id="ratesUpdated">—</span>. Sconti automatici: −10% da 7 notti, −35% da 28 notti, last minute fino a −18%, −5% prenotando direttamente.</p>
+      </div>
+    </section>
+
     <!-- POSIZIONE -->
     <section class="location" id="posizione">
       <div class="location__text section">
@@ -283,5 +335,6 @@
     lightbox.init();
   </script>
   <script src="js/main.js" defer></script>
+  <script src="js/tariffe.js" defer></script>
 </body>
 </html>
